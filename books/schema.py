@@ -1,16 +1,16 @@
 from graphene import ObjectType, Schema
 
-# from app.film.graphql.schema import Query as FilmQuery
-# from app.film.graphql.schema import Mutation as FilmMutation
+from app.info.graphql.schema import Query as InfoQuery
+from app.info.graphql.schema import Mutation as InfoMutation
 
 
-class Query(ObjectType):
+class Query(InfoQuery, ObjectType):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
     pass
 
 
-class Mutation(ObjectType):
+class Mutation(InfoMutation, ObjectType):
     # This class will inherit from multiple Queries
     # as we begin to add more apps to our project
     pass
