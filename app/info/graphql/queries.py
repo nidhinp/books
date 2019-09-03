@@ -20,6 +20,7 @@ class Query(ObjectType):
     authors = graphene.List(AuthorType)
     books = graphene.List(BookType)
     author_search = graphene.List(AuthorType, string=graphene.String())
+    book_search = graphene.List(BookType, string=graphene.String())
 
     def resolve_author(self, info, **kwargs):
         id = kwargs.get('id')
@@ -46,3 +47,7 @@ class Query(ObjectType):
     def resolve_author_search(self, info, **kwargs):
         string = kwargs.get("string", "")
         return Author.objects.filter(name__icontains=string)
+
+    def resolve_book_search(self, info, **kwargs):
+        string = kwargs.get("string", "")
+        return Book.objects.filter(title__icontains=string)
