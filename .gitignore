@@ -10,3 +10,4 @@ books/.DS_Store
 books/media
 .vscode/
 
+books/setting/local.py
